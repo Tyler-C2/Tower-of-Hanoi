@@ -98,7 +98,7 @@ def click_validator(cursor):
             break        
     return [valid,t_hb,og_tower_pos,moving_disk]
 
-def placement_validator(og_t_hitbox,disk):
+def placement_validator(og_tower_hitbox,disk):
     hitbox = new_towers.hitbox
     positions = new_towers.positions
     dict = new_disks.disk_dict
@@ -107,7 +107,7 @@ def placement_validator(og_t_hitbox,disk):
     new_tower_pos = 0
 
     for hb in hitbox:
-        if hb.colliderect(dict[disk]) and hb != og_t_hitbox:
+        if hb.colliderect(dict[disk]) and hb != og_tower_hitbox:
             idx_of_hb = hitbox.index(hb)
             for pos in range(7,-1,-1):
                 if pos == 0 and positions[idx_of_hb][pos] == None:
@@ -246,7 +246,8 @@ while running:
                 if valid_place[0]: 
                     moving_rect.center = new_towers.drawn_pos[valid_place[1]][valid_place[-1]].center
                     new_towers.positions[valid_place[1]][valid_place[2]] = previous_pos[-1]
-                    new_disks.total_moves+=1
+                    if previous_pos[1] != valid_place[1]:
+                        new_disks.total_moves+=1
                 else:
                     moving_rect.center = new_towers.drawn_pos[previous_pos[1]][previous_pos[2]].center
                     new_towers.positions[previous_pos[1]][previous_pos[2]] = previous_pos[-1]
