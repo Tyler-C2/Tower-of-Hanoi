@@ -213,9 +213,13 @@ def blit_text(screen, text, midtop, font_name, size, color):
     font_rect.midtop = midtop
     screen.blit(font_surface, font_rect)    
 
+# start of game    
 screen = pygame.display.set_mode((800, 480))
 new_towers = Towers()
 new_disks = Disks()
+
+running = True
+moving = False
 
 new_disks.disk_count = main_menu()
 
@@ -223,8 +227,6 @@ new_towers.make_towers(screen)
 new_disks.create_disks(new_disks.disk_count, new_disks.disk_dict)
 disk_start_pos(new_towers.drawn_pos,new_disks.disk_dict,new_towers.positions)
 
-running = True
-moving = False
 # game loop
 while running:
     for event in pygame.event.get():
