@@ -8,3 +8,7 @@ Game uses mouse inputs to click and drag disks from tower to tower.
 created with:
 * python 3.9.0
 * Pygame 2.0.1
+
+## Download
+download is available here 
+https://spudugly.itch.io/tower-of-hanoi
