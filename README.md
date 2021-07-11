@@ -11,4 +11,4 @@ created with:
 
 ## Download
 download is available here 
-https://spudugly.itch.io/tower-of-hanoi
+https://tyler-c.itch.io/tower-of-hanoi
